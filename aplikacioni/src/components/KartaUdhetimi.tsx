@@ -1,64 +1,65 @@
-import React from "react";
-import { Text, StyleSheet, TouchableOpacity } from "react-native";
-import { Link } from "expo-router";
-import { Udhetim } from "../lib/udhetimet";
+import Link from "next/link";
+import type { Udhetim } from "../lib/udhetimet";
 
 interface Props {
   udhetim: Udhetim;
 }
 
+const cardStyle: React.CSSProperties = {
+  display: "block",
+  backgroundColor: "#ffffff",
+  padding: 16,
+  borderRadius: 8,
+  marginBottom: 12,
+  border: "1px solid #e0e0e0",
+  color: "#111827",
+  textDecoration: "none",
+};
+
+const titleStyle: React.CSSProperties = {
+  fontSize: 18,
+  fontWeight: 700,
+  marginBottom: 6,
+};
+
+const detailStyle: React.CSSProperties = {
+  fontSize: 14,
+  color: "#4b5563",
+  marginBottom: 4,
+};
+
+const priceStyle: React.CSSProperties = {
+  fontSize: 16,
+  fontWeight: 600,
+  color: "#007AFF",
+};
+
+const vendeStyle: React.CSSProperties = {
+  marginTop: 6,
+  color: "#15803d",
+  fontWeight: 600,
+};
+
+const joVendeStyle: React.CSSProperties = {
+  marginTop: 6,
+  color: "#dc2626",
+  fontWeight: 600,
+};
+
 export const KartaUdhetimi = ({ udhetim }: Props) => {
   return (
-    <Link href={`/udhetimi/${udhetim.id}`} asChild>
-      <TouchableOpacity style={styles.card}>
-        <Text style={styles.title}>
-          {udhetim.nisja} ➔ {udhetim.destinacioni}
-        </Text>
-        <Text style={styles.detail}>Data: {udhetim.data}</Text>
-        <Text style={styles.price}>Çmimi: {udhetim.cmimi}</Text>
-        <Text style={udhetim.vendeTeLira > 0 ? styles.vende : styles.joVende}>
-          {udhetim.vendeTeLira > 0
-            ? `Vende të lira: ${udhetim.vendeTeLira}`
-            : "Nuk ka vende të lira"}
-        </Text>
-      </TouchableOpacity>
+    <Link href={`/udhetimi/${udhetim.id}`} style={cardStyle}>
+      <div style={titleStyle}>
+        {udhetim.nisja} ➔ {udhetim.destinacioni}
+      </div>
+      <div style={detailStyle}>Ora: {udhetim.ora}</div>
+      <div style={detailStyle}>Vendtakimi: {udhetim.vendtakimi}</div>
+      <div style={priceStyle}>Vende: {udhetim.vende}</div>
+      <div style={udhetim.vende > 0 ? vendeStyle : joVendeStyle}>
+        {udhetim.vende > 0
+          ? `Vende të lira: ${udhetim.vende}`
+          : "Nuk ka vende të lira"}
+      </div>
     </Link>
   );
 };
-
-const styles = StyleSheet.create({
-  card: {
-    backgroundColor: "#ffffff",
-    padding: 16,
-    borderRadius: 8,
-    marginBottom: 12,
-    borderWidth: 1,
-    borderColor: "#e0e0e0",
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: "bold",
-    marginBottom: 6,
-    color: "#333",
-  },
-  detail: {
-    fontSize: 14,
-    color: "#666",
-    marginBottom: 4,
-  },
-  price: {
-    fontSize: 16,
-    fontWeight: "600",
-    color: "#007AFF",
-  },
-  vende: {
-    marginTop: 6,
-    color: "green",
-    fontWeight: "600",
-  },
-  joVende: {
-    marginTop: 6,
-    color: "red",
-    fontWeight: "600",
-  },
-});

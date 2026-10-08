@@ -1,0 +1,4 @@
+aplikacioni/node_modules/
+aplikacioni/.expo/
+aplikacioni/.next/
+.env*

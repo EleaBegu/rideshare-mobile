@@ -1,41 +1,29 @@
-export interface Udhetim {
+import "server-only";
+import { getSql } from "./db";
+
+export type Udhetim = {
   id: string;
   nisja: string;
   destinacioni: string;
-  cmimi: string;
-  data: string;
+  ora: string;
   vendtakimi: string;
-  vendeTeLira: number;
+  vende: number;
+};
+
+export async function lexoUdhetimet(): Promise<Udhetim[]> {
+  const sql = getSql();
+  const rows = await sql`
+    SELECT id, nisja, destinacioni, ora, vendtakimi, vende
+   FROM udhetimet ORDER BY id
+  `;
+  return rows as Udhetim[];
 }
 
-export const udhetimet: Udhetim[] = [
-  {
-    id: "1",
-    nisja: "Prishtinë",
-    destinacioni: "Tiranë",
-    cmimi: "15 €",
-    data: "Sot, 14:00",
-    vendtakimi: "Stacioni i Autobusëve",
-    vendeTeLira: 2,
-  },
-  {
-    id: "2",
-    nisja: "Prizren",
-    destinacioni: "Shkup",
-    cmimi: "10 €",
-    data: "Nesër, 09:00",
-    vendtakimi: "Te Rrethi i Flamurit",
-    vendeTeLira: 3,
-  },
-  {
-    id: "3",
-    nisja: "Pejë",
-    destinacioni: "Prishtinë",
-    cmimi: "5 €",
-    data: "Sot, 18:30",
-    vendtakimi: "Qendra e Qytetit",
-    vendeTeLira: 0,
-  },
-];
-
-
+export async function gjejUdhetimin(id: string): Promise<Udhetim | undefined> {
+  const sql = getSql();
+  const rows = await sql`
+    SELECT id, nisja, destinacioni, ora, vendtakimi, vende
+    FROM udhetimet WHERE id = ${id}
+  `;
+  return rows[0] as Udhetim | undefined;
+}

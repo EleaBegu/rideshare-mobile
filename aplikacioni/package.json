@@ -1,32 +1,23 @@
 {
   "name": "aplikacioni",
   "version": "1.0.0",
-  "main": "expo-router/entry",
+  "private": true,
   "scripts": {
-    "dev": "expo start",
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
-    "@expo/metro-runtime": "~3.2.3",
-    "expo": "~51.0.0",
-    "expo-constants": "^57.0.20",
-    "expo-linking": "^57.0.11",
-    "expo-router": "^57.0.24",
-    "expo-status-bar": "^57.0.1",
+    "@neondatabase/serverless": "^1.2.0",
+    "next": "14.2.15",
     "react": "18.2.0",
-    "react-dom": "^18.3.1",
-    "react-native": "0.74.5",
-    "react-native-safe-area-context": "^5.10.1",
-    "react-native-screens": "^4.28.0",
-    "react-native-web": "^0.19.13"
+    "react-dom": "18.2.0",
+    "server-only": "^0.0.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0",
-    "@types/react": "~18.2.45",
-    "typescript": "^5.1.3"
-  },
-  "private": true
+    "@types/node": "^20.14.10",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "typescript": "^5.4.5"
+  }
 }

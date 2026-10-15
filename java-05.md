@@ -1,7 +1,7 @@
 # RideShare — Java 5 · Hyrja dhe lejet
 
 Ruaje si java-05.md pranë README, jashtë aplikacioni/.
-Hiqi shenjat [PLOTËSO]. Mos vendos sekrete, email ose pamje të kredencialeve.
+Hiqi shenjat PLOTËSO. Mos vendos sekrete, email ose pamje të kredencialeve.
 
 ## Çfarë ndërtova
 Në këtë javë kam ndarë qartë konceptet e identitetit, rolit dhe pronësisë në aplikacion. Identiteti verifikohet nga GitHub përmes NextAuth, i cili i jep përdoruesit një ID të sigurt sesioni. Roli përcaktohet në databazën Neon në tabelën profilet (udhetar ose shofer) dhe nuk mund të zgjidhet apo ndryshohet nga formulari. Pronësia lidh udhëtimin me shoferin përmes kolonës shofer_id. Në këtë mënyrë, vetëm përdoruesi që ka rolin shofer dhe është pronar i udhëtimit mund ta ndryshojë orën e atij udhëtimi.

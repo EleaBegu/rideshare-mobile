@@ -1,8 +1,7 @@
 # Java 7 - Raporti i MVP-së
 
 ## Rasti im
-- P7-436
-- GitHub: EleaBegu
+- P7-436, GitHub: EleaBegu
 
 ## Parashikimi
 Pritja ime ishte që përdoruesi të mund të shfletonte listën e udhëtimeve publike, të hynte në panel dhe të klikonte butonin për kërkimin e vendit pa shkaktuar kërkesa të dyfishta ose gabime gjatë ngarkimit.
@@ -11,7 +10,7 @@ Pritja ime ishte që përdoruesi të mund të shfletonte listën e udhëtimeve p
 Shtova kontrollin e gjendjes së butonit gjatë dërgimit të kërkesës (`isSubmitting`) për të parandaluar klikimet e shumfishta nga përdoruesi gjatë procesimit.
 
 ## Ndihma nga AI
-Përdora AI për strukturimin e raportit dhe për formulimin e hapateve të provave teknike. Të gjitha provat dhe ekzekutimin e kodit i testova vetë në shfletues.
+Përdora AI për strukturimin e raportit dhe për formulimin e hapave të provave teknike. Të gjitha provat dhe ekzekutimin e kodit i testova vetë në shfletues.
 
 ## Dy probleme
 1. Butoni i kërkimit të vendit mbetej i aktivizuar gjatë dërgimit të kërkesës API, duke lejuar klikime të dyfishta.
@@ -40,4 +39,3 @@ Pas: https://github.com/EleaBegu/rideshare-mobile/commit/736da16ee3baabedd701612
 - Hapat: Hap faqen e udhëtimeve me dhe pa lidhje interneti (PWA offline).
 - Pritshmëria: Lista publike të lexohet nga cache e Service Worker edhe offline.
 - Vëzhgimi: Lista e udhëtimeve u shfaq saktë nga kopja e ruajtur.
-

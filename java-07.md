@@ -1,7 +1,8 @@
 # Java 7 - Raporti i MVP-së
 
 ## Rasti im
-(P7-436, GitHub: EleaBegu)
+- ID: P7-436
+- GitHub: EleaBegu
 
 ## Parashikimi
 Pritja ime ishte që përdoruesi të mund të shfletonte listën e udhëtimeve publike, të hynte në panel dhe të klikonte butonin për kërkimin e vendit pa shkaktuar kërkesa të dyfishta ose gabime gjatë ngarkimit.
@@ -26,17 +27,31 @@ Para: https://github.com/EleaBegu/rideshare-mobile/commit/f913a2dfda260f99d081af
 Pas: https://github.com/EleaBegu/rideshare-mobile/commit/736da16ee3baabedd70161277763687c3cd1f773
 
 ## Prova 1
-- Hapat: Hap faqen kryesore `/` -> Zgjidh një udhëtim -> Kliko butonin për kërkim vendi.
-- Pritshmëria: Udhëtimi të tregojë statusin e kërkesës pa shkaktuar gabime.
-- Vëzhgimi: Kërkesa u dërgua dhe statusi u përditësua me sukses.
+### Hapat
+Hap faqen kryesore `/` -> Zgjidh një udhëtim -> Kliko butonin për kërkim vendi.
+
+### Pritshmëria
+Udhëtimi të tregojë statusin e kërkesës pa shkaktuar gabime.
+
+### Vëzhgimi
+Kërkesa u dërgua dhe statusi u përditësua me sukses.
 
 ## Prova 2
-- Hapat: Kliko butonin e rezervimit disa herë rresht shpejt gjatë ngarkimit.
-- Pritshmëria: Butoni të çaktivizohet (`disabled`) menjëherë pas klikimit të parë.
-- Vëzhgimi: Butoni u çaktivizua gjatë kohës që kërkesa ishte në procesim.
+### Hapat
+Kliko butonin e rezervimit disa herë rresht shpejt gjatë ngarkimit.
+
+### Pritshmëria
+Butoni të çaktivizohet (`disabled`) menjëherë pas klikimit të parë.
+
+### Vëzhgimi
+Butoni u çaktivizua gjatë kohës që kërkesa ishte në procesim.
 
 ## Prova 3
-- Hapat: Hap faqen e udhëtimeve me dhe pa lidhje interneti (PWA offline).
-- Pritshmëria: Lista publike të lexohet nga cache e Service Worker edhe offline.
-- Vëzhgimi: Lista e udhëtimeve u shfaq saktë nga kopja e ruajtur.
+### Hapat
+Hap faqen e udhëtimeve me dhe pa lidhje interneti (PWA offline).
 
+### Pritshmëria
+Lista publike të lexohet nga cache e Service Worker edhe offline.
+
+### Vëzhgimi
+Lista e udhëtimeve u shfaq saktë nga kopja e ruajtur.

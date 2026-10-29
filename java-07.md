@@ -1,7 +1,7 @@
 # Java 7 - Raporti i MVP-së
 
 ## Rasti im
-- Rasti: (P7-436, GitHub: EleaBegu)
+(P7-436, GitHub: EleaBegu)
 
 ## Parashikimi
 Pritja ime ishte që përdoruesi të mund të shfletonte listën e udhëtimeve publike, të hynte në panel dhe të klikonte butonin për kërkimin e vendit për të kaluar te faqja e simulimit pa gabime.

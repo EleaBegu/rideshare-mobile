@@ -1,7 +1,9 @@
 # Java 7 - Raporti i MVP-së
 
-## Rasti im
-(P7-436, GitHub: EleaBegu)
+## Rasti im (P7-436, GitHub: EleaBegu)
+
+- P7-436
+- GitHub: EleaBegu
 
 ## Parashikimi
 Pritja ime ishte që përdoruesi të mund të shfletonte listën e udhëtimeve publike, të hynte në panel dhe të klikonte butonin për kërkimin e vendit për të kaluar te faqja e simulimit pa gabime.
@@ -26,16 +28,31 @@ Para: https://github.com/EleaBegu/rideshare-mobile/commit/f913a2dfda260f99d081af
 Pas: https://github.com/EleaBegu/rideshare-mobile/commit/736da16ee3baabedd70161277763687c3cd1f773
 
 ## Prova 1
-- Hapat: Hap faqen kryesore `/` -> Zgjidh një udhëtim -> Kliko butonin "Kërko vend".
-- Pritshmëria: Aplikacioni të hapë faqen e simulimit të udhëtimit.
-- Vëzhgimi: Faqja e simulimit u hap saktësisht siç pritej.
+### Hapat
+Hap faqen kryesore `/` -> Zgjidh një udhëtim -> Kliko butonin "Kërko vend".
+
+### Pritshmëria
+Aplikacioni të hapë faqen e simulimit të udhëtimit.
+
+### Vëzhgimi
+Faqja e simulimit u hap saktësisht siç pritej.
 
 ## Prova 2
-- Hapat: Kliko butonin e kërkimit të vendit nga lista e udhëtimeve publike.
-- Pritshmëria: Përdoruesi të ridrejtohet te moduli përkatës i udhëtimit.
-- Vëzhgimi: Ridrejtimi u krye me sukses në shfletues.
+### Hapat
+Kliko butonin e kërkimit të vendit nga lista e udhëtimeve publike.
+
+### Pritshmëria
+Përdoruesi të ridrejtohet te moduli përkatës i udhëtimit.
+
+### Vëzhgimi
+Ridrejtimi u krye me sukses në shfletues.
 
 ## Prova 3
-- Hapat: Hap faqen e udhëtimeve me dhe pa lidhje interneti (PWA offline).
-- Pritshmëria: Lista publike të lexohet nga cache e Service Worker edhe offline.
-- Vëzhgimi: Lista e udhëtimeve u shfaq saktë nga kopja e ruajtur.
+### Hapat
+Hap faqen e udhëtimeve me dhe pa lidhje interneti (PWA offline).
+
+### Pritshmëria
+Lista publike të lexohet nga cache e Service Worker edhe offline.
+
+### Vëzhgimi
+Lista e udhëtimeve u shfaq saktë nga kopja e ruajtur.

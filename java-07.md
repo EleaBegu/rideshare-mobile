@@ -13,11 +13,11 @@ Shtova kontrollin e gjendjes së butonit gjatë dërgimit të kërkesës (`isSub
 Përdora AI për strukturimin e raportit dhe për formulimin e hapave të provave teknike. Të gjitha provat dhe ekzekutimin e kodit i testova vetë në shfletues.
 
 ## Dy probleme
-1. Butoni i kërkimit të vendit mbetej i aktivizuar gjatë dërgimit të kërkesës API, duke lejuar klikime të dyfishta.
+1. Butoni i kërkimit të vendit mbetej i aktivizuar gjatë dërgimit të kërkesës API.
 2. Mungesa e një mesazhi vizual specifik kur shkëputet lidhja e rrjetit gjatë kërkesës.
 
 ## Korrigjimi
-Arsyeja e korrigjimit ishte parandalimi i kërkesave të dyfishta në server gjatë ngarkimit.
+Arsyeja: Parandalimi i kërkesave të dyfishta në server gjatë ngarkimit.
 
 Skedari: aplikacioni/src/app/page.tsx
 

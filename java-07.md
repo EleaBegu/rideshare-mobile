@@ -1,34 +1,38 @@
-# RideShare — Java 7
+# Java 7 - Raporti i MVP-së
 
-## Çfarë ndërtova
-Këtë javë përfundova dhe demonstrova skenarin e plotë të përdoruesit (End-to-End) për aplikacionin RideShare. Integrova rrjedhën ku pasagjeri (Arta) kyçet në sistem, shfleton udhëtimet nga lista publike, shikon detajet e një udhëtimi dhe dërgon kërkesën për rezervim vendi. Po ashtu, testova funksionimin e lexuesit offline (PWA) të realizuar në Javën 6 dhe korrigjova gabimet në menaxhimin e gjendjes së rezervimeve.
+## Rasti im
+- **ID:** P7-436
+- **GitHub:** EleaBegu
 
-## Provat që bëra
-### Prova 1: Rrjedha kryesore mund të demonstrohet nga fillimi në fund.
-- **Hapat:** Hap faqen kryesore `/` -> Kyçem si pasagjer -> Zgjedh një udhëtim nga lista -> Kliko "Kërko vend" -> Kontrollo ndryshimin e statusit të rezervimit.
-- **Rezultati i pritur:** Udhëtimi të shfaqë statusin e ri të kërkesës dhe numri i vendeve të lira të përditësohet pa gabime.
-- **Çfarë ndodhi:** Rrjedha funksionoi plotësisht nga fillimi në fund me të dhëna fiktive në databazën Neon.
+## Parashikimi
+Pritja ime ishte që përdoruesi të mund të shfletonte listën e udhëtimeve publike, të hynte në panel dhe të klikonte butonin për kërkimin e vendit pa shkaktuar kërkesa të dyfishta ose gabime gjatë ngarkimit.
 
-### Prova 2: Raporti përshkruan një gabim dhe korrigjimin e tij.
-- **Hapat:** Shtyp butonin "Kërko vend" disa herë rresht shpejt gjatë kohës që kërkesa API ishte duke u procesuar.
-- **Rezultati i pritur:** Butoni duhet të çaktivizohet menjëherë pas klikimit të parë për të parandaluar kërkesat e dyfishta.
-- **Çfarë ndodhi:** Fillimisht butoni mbetej i klikueshëm gjatë kohës së ngarkimit. U korrigjua duke shtuar një gjendje `isSubmitting` (disabled) gjatë ekzekutimit të `fetch()`.
+## Ndryshimi i ri
+Shtova kontrollin e gjendjes së butonit gjatë dërgimit të kërkesës (`isSubmitting`) për të parandaluar klikimet e shumfishta nga përdoruesi gjatë procesimit.
 
-### Prova 3: Mund të shpjegoj ku ruhen të dhënat dhe kush lejohet t’i ndryshojë.
-- **Hapat:** Kontrollo API routes (`/api/udhetimet`) dhe tabelat në databazën Neon.
-- **Rezultati i pritur:** Të dhënat publike (orari, nisja, destinacioni) mund të lexohen nga kushdo (edhe offline), ndërsa krijimi i udhëtimeve dhe konfirmimi i rezervimeve kërkojnë autentifikim.
-- **Çfarë ndodhi:** U konfirmua se të dhënat ruhen në Neon (PostgreSQL). Leximi publik bëhet me kërkesë `GET`, kurse ndryshimet e të dhënave (POST/UPDATE) lejohen vetëm për përdoruesit e autentifikuar me lejet përkatëse.
+## Ndihma nga AI
+Përdora AI për strukturimin e raportit dhe për formulimin e hapave të provave teknike. Të gjitha provat dhe ekzekutimin e kodit i testova vetë në shfletues.
 
-## Ku gjendet puna
-- **Skedarët kryesorë:**
-  - `src/app/page.tsx` (Faqja kryesore dhe lista e udhëtimeve)
-  - `src/app/api/udhetimet/route.ts` (API endpoint për të dhënat publike)
-  - `public/sw.js` & `public/offline.html` (Service Worker dhe faqja offline PWA)
-  - `src/components/Pwa.tsx` (Komponenti i regjistrimit të Service Worker)
-- **Vendndodhja e kodit:** Skedarët janë të ruajtur në repository-n personal në GitHub në degën kryesore (main).
+## Dy probleme
+1. Butoni i kërkimit të vendit mbetej i aktivizuar gjatë dërgimit të kërkesës API, duke lejuar klikime të dyfishta.
+2. Mungesa e një mesazhi vizual specifik kur shkëputet lidhja e rrjetit gjatë kërkesës.
 
-## Çfarë mbetet për përmirësim
-Nëse rrjeti shkëputet ekzaktsisht në momentin kur dërgohet kërkesa për rezervim vendi, përdoruesi merr një gabim të përgjithshëm në shfletues. Hapi i ardhshëm është shtimi i një mesazhi me njoftim vizual (toast/banner) që informon përdoruesin se rezervimet kërkojnë lidhje me serverin.
+## Korrigjimi
+Arsyeja e korrigjimit ishte parandalimi i kërkesave të dyfishta në server gjatë ngarkimit.
 
-## Ndihma nga AI (Artificial Intelligence – inteligjencë artificiale)
-Përdora AI për të strukturuar raportin e Javës 7, për të verifikuar logjikën e çaktivizimit të butonit të rezervimit gjatë ngarkimit, dhe për formulimin e hapave të provave teknike. Të gjitha provat dhe ekzekutimin e kodit i testova vetë në shfletues.
+Skedari: aplikacioni/src/app/page.tsx
+
+## Prova 1
+- **Hapat:** Hap faqen kryesore `/` -> Zgjidh një udhëtim -> Kliko butonin për kërkim vendi.
+- **Pritshmëria:** Udhëtimi të tregojë statusin e kërkesës pa shkaktuar gabime.
+- **Vëzhgimi:** Kërkesa u dërgua dhe statusi u përditësua me sukses.
+
+## Prova 2
+- **Hapat:** Kliko butonin e rezervimit disa herë rresht shpejt gjatë ngarkimit.
+- **Pritshmëria:** Butoni të çaktivizohet (`disabled`) menjëherë pas klikimit të parë.
+- **Vëzhgimi:** Butoni u çaktivizua gjatë kohës që kërkesa ishte në procesim.
+
+## Prova 3
+- **Hapat:** Hap faqen e udhëtimeve me dhe pa lidhje interneti (PWA offline).
+- **Pritshmëria:** Lista publike të lexohet nga cache e Service Worker edhe offline.
+- **Vëzhgimi:** Lista e udhëtimeve u shfaq saktë nga kopja e ruajtur.

@@ -19,6 +19,13 @@ Shtova menaxhimin e lejeve të vendndodhjes (geolocation) përmes butonit "Përd
 - Pritshmëria: Të dhënat e koordinatave reale ose adresat personale të jenë të anonimizuara me të dhëna fiktive.
 - Vëzhgimi: Në ekran dhe në historikun e publikuar u përdorën vetëm koordinata fiktive dhe nuk u gjet asnjë adresë personale reale.
 
+## Prova me një hyrje të re
+- Hyrja që provova: Shtypja e butonit "Përdor vendndodhjen time" dhe vendosja e një vendtakimi manual fiktiv "Stacioni Fiktiv, Prishtinë" pas refuzimit të lejes.
+- Parashikimi im para klikimit: Pritja që ndërfaqja të përditësojë pikën e nisjes menjëherë me adresën e shkruar manualisht pa bllokuar aplikacionin.
+- Çfarë pashë realisht: Fusha tekstuale u shfaq me sukses pas refuzimit të lejes dhe teksti i shkruar u shfaq si pikë nisjeje pa asnjë gabim në console.
+- Skedari dhe funksioni që e shpjegojnë: `aplikacioni/src/components/Vendndodhja.tsx` te funksioni `handleGetLocation` dhe menaxhimi i gjendjes me `setPermissionDenied(true)`.
+- Çfarë kuptova ose korrigjova: Kuptova rëndësinë e trajtimit të rasteve ku përdoruesi refuzon lejen (fallback logic) në mënyrë që aplikacioni të mbetet gjithmonë funksional.
+
 ## Ku gjendet puna
 Skedarët kryesorë: `aplikacioni/src/app/page.tsx`, `aplikacioni/src/components/Vendndodhja.tsx`
 
